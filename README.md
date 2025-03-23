@@ -24,11 +24,17 @@ Sklonuj repozytorium (lub pobierz ZIP i rozpakuj):
 git clone https://github.com/<twoj-uzytkownik>/implementation-of-genetic-algorithm.git
 cd implementation-of-genetic-algorithm
 Utwórz i aktywuj wirtualne środowisko:
+```powershell
 py -m venv .venv
+```
+```powershell
 .\.venv\Scripts\activate
-
+```
 Zainstaluj wymagane pakiety:
+```powershell
 pip install numpy matplotlib
-
+```
 Sposoby uruchomienia
+```powershell
 py gui.py
+```
