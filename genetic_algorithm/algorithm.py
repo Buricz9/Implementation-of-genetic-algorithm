@@ -22,14 +22,14 @@ def save_results(filename, best_solution, best_score, best_scores_history, avg_s
 
 def run_ga(
         n_vars=2,
-        n_bits=20,
+        n_bits=10,
         bounds=(-32.768, 32.768),
-        pop_size=50,
+        pop_size=100,
         generations=100,
-        p_cross=0.7,
-        p_mut=0.01,
-        p_inversion=0.05,
-        selection_type='tournament',
+        p_cross=0.8,
+        p_mut=0.5,
+        p_inversion=0.3,
+        selection_type='best',
         crossover_type='one_point',
         mutation_type='classic',
         elitism=True
