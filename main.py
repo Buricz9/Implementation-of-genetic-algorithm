@@ -1,4 +1,4 @@
-from genetic_algorithm import run_ga
+from genetic_algorithm.algorithm import run_ga
 import matplotlib.pyplot as plt
 import time
 
@@ -12,8 +12,8 @@ if __name__ == "__main__":
         generations=100,
         p_cross=0.7,
         p_mut=0.01,
-        selection_type='roulette',   # zmień na 'tournament', aby użyć turniejowej
-        crossover_type='two_point',  # zmień na 'one_point', aby użyć jednopunktowej
+        selection_type='roulette',
+        crossover_type='two_point',
         elitism=True
     )
     end_time = time.time()
@@ -23,7 +23,6 @@ if __name__ == "__main__":
     print(f"Wartość funkcji celu: {best_score:.6f}")
     print(f"Czas wykonania: {end_time - start_time:.4f} s")
 
-    # Wykres konwergencji – najlepszy, średni i maksymalny wynik w populacji
     plt.figure()
     plt.plot(best_hist, label='Najlepszy')
     plt.plot(avg_hist, label='Średni')
