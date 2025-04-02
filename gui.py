@@ -75,7 +75,7 @@ if st.button("Uruchom"):
         st.pyplot(fig1)
 
     with col2:
-        st.subheader("Chromosom Binarny")
+        st.subheader("Konwergencja - Chromosom Binarny")
         st.write(f"Najlepsze rozwiązanie: {result_binary['solution']}")
         st.write(f"Fitness: {result_binary['fitness']:.6f}")
         st.write(f"Czas wykonania: {result_binary['execution_time']:.4f} s")
