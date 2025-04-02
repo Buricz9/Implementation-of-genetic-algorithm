@@ -34,6 +34,7 @@ def run_ga_binary(
     crossover_type,
     mutation_type,
     p_mut=0.01,
+    p_cross=0.8,
     elitism=True,
     gene_type=int
 ):
@@ -68,7 +69,12 @@ def run_ga_binary(
 
         for i in range(0, population_size, 2):
             p1, p2 = selected[i], selected[(i + 1) % population_size]
-            c1, c2 = crossover_map_binary[crossover_type](p1, p2, 0.8)
+            
+            if np.random.rand() < p_cross:
+                c1, c2 = crossover_map_binary[crossover_type](p1, p2, p_cross)
+            else:
+                c1, c2 = p1, p2
+        
             c1 = mutation_map_binary[mutation_type](c1, p_mut)
             c2 = mutation_map_binary[mutation_type](c2, p_mut)
             children.extend([c1, c2])

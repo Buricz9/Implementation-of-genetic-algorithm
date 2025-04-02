@@ -29,6 +29,7 @@ with col2:
     binary_selection = st.selectbox("Selekcja (binary)", ["tournament", "rws", "random"])
     binary_crossover = st.selectbox("Krzyżowanie (binary)", ["single_point", "two_point", "uniform"])
     binary_mutation = st.selectbox("Mutacja (binary)", ["classic", "one_point", "two_point"])
+    p_cross_binary = st.slider("Prawdopodobieństwo krzyżowania (binary)", 0.0, 1.0, 0.8)
     p_mut_binary = st.slider("Prawdopodobieństwo mutacji (binary)", 0.0, 1.0, 0.01)
     elitism_binary = st.checkbox("Elitaryzm (binary)", value=True)
 
@@ -73,6 +74,7 @@ if st.button("🚀 Uruchom optymalizację"):
         crossover_type=binary_crossover,
         mutation_type=binary_mutation,
         p_mut=p_mut_binary,
+        p_cross=p_cross_binary,
         elitism=elitism_binary,
         gene_type=int
     )
