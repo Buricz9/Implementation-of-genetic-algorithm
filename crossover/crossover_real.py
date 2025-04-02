@@ -1,16 +1,10 @@
 import numpy as np
 
 def arithmetic_crossover(parent1, parent2):
-    """
-    Zwraca średnią z dwóch rodziców jako dwa dzieci (identyczne).
-    """
     child = [(g1 + g2) / 2 for g1, g2 in zip(parent1, parent2)]
     return child, child
 
 def blend_crossover(parent1, parent2, alpha=0.5):
-    """
-    Generuje dzieci przez liniową interpolację.
-    """
     child1 = []
     child2 = []
     for g1, g2 in zip(parent1, parent2):

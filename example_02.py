@@ -1,10 +1,8 @@
-#na podstawie przykładu: https://pypi.org/project/pygad/1.0.18/
+
 import logging
 import pygad
 import numpy
 import benchmark_functions as bf
-
-#Konfiguracja algorytmu genetycznego
 
 num_genes = 2
 func = bf.Ackley(n_dimensions=num_genes)
@@ -16,7 +14,6 @@ fitness_function = fitness_func
 num_generations = 100
 sol_per_pop = 80
 num_parents_mating = 50
-#boundary = func.suggested_bounds() #możemy wziąć stąd zakresy
 init_range_low = -32.768
 init_range_high = 32.768
 mutation_num_genes = 1

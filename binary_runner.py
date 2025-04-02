@@ -6,7 +6,6 @@ from selection.selection_methods import tournament_selection, roulette_selection
 from crossover.crossover_binary import one_point_crossover, two_point_crossover, uniform_crossover
 from mutation import mutation_binary as mut
 
-# Mapowanie funkcji
 mutation_map_binary = {
     "classic": mut.bit_mutation,
     "one_point": mut.one_point_mutation,

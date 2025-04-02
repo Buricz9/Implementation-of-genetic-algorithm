@@ -28,15 +28,14 @@ def run_ga_real(
     best_scores = []
     avg_scores = []
     worst_scores = []
-
-# usuniecie munusow 
+ 
     def on_generation(ga_instance):
         fitnesses = ga_instance.last_generation_fitness
-        objective_values = [-f for f in fitnesses]  # odwracamy z powrotem
+        objective_values = [-f for f in fitnesses]
 
-        best_scores.append(min(objective_values))    # najmniejsze = najlepsze
-        avg_scores.append(np.mean(objective_values)) # średnie
-        worst_scores.append(max(objective_values))   # największe = najgorsze
+        best_scores.append(min(objective_values))
+        avg_scores.append(np.mean(objective_values))
+        worst_scores.append(max(objective_values))
 
 
     start_time = time.time()

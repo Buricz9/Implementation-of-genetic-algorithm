@@ -1,9 +1,6 @@
 import numpy as np
 
 def gaussian_mutation(solution, p_mut, mu=0, sigma=0.1):
-    """
-    Dodaje szum Gaussowski do każdego genu z prawdopodobieństwem p_mut.
-    """
     mutated = []
     for gene in solution:
         if np.random.rand() < p_mut:
@@ -12,9 +9,6 @@ def gaussian_mutation(solution, p_mut, mu=0, sigma=0.1):
     return mutated
 
 def uniform_mutation(solution, p_mut, low=-1, high=1):
-    """
-    Zamienia gen na losową wartość z zakresu [low, high] z prawdopodobieństwem p_mut.
-    """
     mutated = []
     for gene in solution:
         if np.random.rand() < p_mut:
