@@ -1,7 +1,7 @@
 import numpy as np
 
-def random_chromosome(n_vars, n_bits):
-    return ''.join(np.random.choice(['0', '1']) for _ in range(n_vars * n_bits))
+def random_real_chromosome(n_vars, bounds):
+    return list(np.random.uniform(bounds[0], bounds[1], n_vars))
 
-def initial_population(pop_size, n_vars, n_bits):
-    return [random_chromosome(n_vars, n_bits) for _ in range(pop_size)]
+def initial_population(pop_size, n_vars, bounds):
+    return [random_real_chromosome(n_vars, bounds) for _ in range(pop_size)]
