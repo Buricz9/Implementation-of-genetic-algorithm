@@ -10,12 +10,12 @@ from mutation import mutation_binary as mut
 mutation_map_binary = {
     "classic": mut.bit_mutation,
     "one_point": mut.one_point_mutation,
-    "two_point": mut.two_point_mutation
+    "two_points": mut.two_point_mutation
 }
 
 crossover_map_binary = {
     "single_point": one_point_crossover,
-    "two_point": two_point_crossover,
+    "two_points": two_point_crossover,
     "uniform": uniform_crossover
 }
 
@@ -95,5 +95,5 @@ def run_ga_binary(
         "best_scores": best_scores,
         "avg_scores": avg_scores,
         "worst_scores": worst_scores,
-        "execution_time": end_time - start_time  # ✅ Poprawione!
+        "execution_time": end_time - start_time
     }
