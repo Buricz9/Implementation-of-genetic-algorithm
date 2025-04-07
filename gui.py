@@ -22,6 +22,8 @@ with col1:
 
 with col2:
     st.subheader("Chromosom Binarny")
+    n_vars_binary = st.number_input("Liczba zmiennych", min_value=1, max_value=10, value=2)
+    n_bits_binary = st.number_input("Liczba bitów na zmienną", min_value=1, max_value=64, value=10)
     binary_selection = st.selectbox("Selekcja.", ["tournament", "rws", "random"])
     binary_crossover = st.selectbox("Krzyżowanie.", ["single_point", "two_points", "uniform"])
     binary_mutation = st.selectbox("Mutacja.", ["classic", "one_point", "two_points"])
@@ -51,7 +53,9 @@ if st.button("Uruchom"):
         p_mut=p_mut_binary,
         p_cross=p_cross_binary,
         elitism=elitism_binary,
-        gene_type=int
+        gene_type=int,
+        n_vars=n_vars_binary,
+        n_bits=n_bits_binary
     )
 
     col1, col2 = st.columns(2)

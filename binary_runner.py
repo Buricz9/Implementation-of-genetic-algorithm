@@ -35,12 +35,12 @@ def run_ga_binary(
     p_mut=0.01,
     p_cross=0.8,
     elitism=True,
-    gene_type=int
+    gene_type=int,
+    n_vars=2,
+    n_bits=10
 ):
     start_time = time.time()
 
-    n_bits = 10
-    n_vars = 2
     total_bits = n_bits * n_vars
     bounds = (-32.768, 32.768) if function_name == "Ackley" else (0, 10)
     fitness_func = ackley_function if function_name == "Ackley" else booth_function
