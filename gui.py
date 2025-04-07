@@ -10,9 +10,9 @@ st.title("Algorytm Genetyczny – Chromosomy Rzeczywiste – Funkcja Ackley")
 
 n_vars = st.number_input("Liczba zmiennych", min_value=1, max_value=50, value=2)
 pop_size = st.slider("Wielkość populacji", 10, 500, 100)
-generations = st.slider("Liczba pokoleń (epok)", 10, 1000, 100)
-p_cross = st.slider("Prawdopodobieństwo krzyżowania", 0.0, 1.0, 0.8)
-p_mut = st.slider("Prawdopodobieństwo mutacji", 0.0, 1.0, 0.5)
+generations = st.slider("Liczba epok", 10, 1000, 100)
+p_cross = st.slider("Prawd. krzyżowania", 0.0, 1.0, 0.8)
+p_mut = st.slider("Prawd. mutacji", 0.0, 1.0, 0.5)
 
 selection_type = st.selectbox("Typ selekcji", ["tournament", "roulette", "best"])
 crossover_type = st.selectbox("Typ krzyżowania", ["arithmetic", "linear", "blend_alpha", "alpha_beta", "average"])
