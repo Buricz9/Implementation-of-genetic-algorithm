@@ -2,6 +2,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 from real_runner import run_ga_real
 from binary_runner import run_ga_binary
+import io
 
 st.set_page_config(layout="wide")
 st.title("Projekt P3 - porównanie chromosomów")
@@ -67,6 +68,7 @@ if st.button("Uruchom"):
         st.write(f"Czas wykonania: {result_real['execution_time']:.4f} s")
 
         fig1, ax1 = plt.subplots()
+        st.session_state["fig1"] = fig1
         ax1.plot(result_real["best_scores"], label="Najlepszy")
         if result_real["avg_scores"]:
             ax1.plot(result_real["avg_scores"], label="Średni")
@@ -85,6 +87,7 @@ if st.button("Uruchom"):
         st.write(f"Czas wykonania: {result_binary['execution_time']:.4f} s")
 
         fig2, ax2 = plt.subplots()
+        st.session_state["fig2"] = fig2
         ax2.plot(result_binary["best_scores"], label="Najlepszy")
         if result_binary["avg_scores"]:
             ax2.plot(result_binary["avg_scores"], label="Średni")
@@ -95,3 +98,24 @@ if st.button("Uruchom"):
         ax2.set_ylabel("Wartość funkcji")
         ax2.legend()
         st.pyplot(fig2)
+
+if "fig1" in st.session_state and "fig2" in st.session_state:
+    buf1 = io.BytesIO()
+    st.session_state["fig1"].savefig(buf1, format="png")
+    st.download_button(
+        label="Pobierz - chromosom rzeczywisty",
+        data=buf1.getvalue(),
+        file_name="wykres_rzeczywisty.png",
+        mime="image/png"
+    )
+
+    buf2 = io.BytesIO()
+    st.session_state["fig2"].savefig(buf2, format="png")
+    st.download_button(
+        label="Pobierz - chromosom binarny",
+        data=buf2.getvalue(),
+        file_name="wykres_binarny.png",
+        mime="image/png"
+    )
+
+
