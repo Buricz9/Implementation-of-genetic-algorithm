@@ -6,7 +6,7 @@ import io
 
 from genetic_algorithm.algorithm_real import run_ga
 
-st.title("Algorytm Genetyczny – Chromosomy Rzeczywiste – Funkcja Ackley")
+st.title("Chromosom Rzeczywisty (Ackley)")
 
 n_vars = st.number_input("Liczba zmiennych", min_value=1, max_value=50, value=2)
 pop_size = st.slider("Wielkość populacji", 10, 500, 100)
