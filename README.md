@@ -5,9 +5,14 @@ Eksperyment GWO na funkcji Ackleya
 
 Instalacja krok po kroku
 Sklonuj repozytorium (lub pobierz ZIP i rozpakuj):
-
+```powershell
 git clone https://github.com/<twoj-uzytkownik>/implementation-of-genetic-algorithm.git
+git checkout P4
+```
+
+```powershell
 cd implementation-of-genetic-algorithm
+```
 Utwórz i aktywuj wirtualne środowisko:
 ```powershell
 py -m venv .venv
