@@ -1,35 +1,20 @@
-import time
-import matplotlib.pyplot as plt
-from genetic_algorithm.algorithm_real import run_ga
+# main.py
+import argparse
+from algorithm_real import run_gwo
 
 if __name__ == "__main__":
-    # start_time = time.time()
-    best_solution, best_score, best_hist, avg_hist, max_hist = run_ga(
-        n_vars=2,
-        bounds=(-32.768, 32.768),
-        pop_size=100,
-        generations=100,
-        p_cross=0.8,
-        p_mut=0.5,
-        selection_type='best',
-        crossover_type='arithmetic',
-        mutation_type='uniform',
-        elitism=True
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--n_vars",    type=int,   default=30)
+    parser.add_argument("--pop_size",  type=int,   default=50)
+    parser.add_argument("--iters",     type=int,   default=200)
+    parser.add_argument("--runs",      type=int,   default=30)
+    args = parser.parse_args()
+
+    best_pos, best_fit, mean_curve, std_curve = run_gwo(
+        n_vars=args.n_vars,
+        pop_size=args.pop_size,
+        iterations=args.iters,
+        runs=args.runs
     )
-    # end_time = time.time()
-
-    # print("\n--- WYNIK KOŃCOWY ---")
-    # print(f"Najlepsze znalezione rozwiązanie: {best_solution}")
-    # print(f"Wartość funkcji celu: {best_score:.6f}")
-    # print(f"Czas wykonania: {end_time - start_time:.4f} s")
-
-    # plt.figure()
-    # plt.plot(best_hist, label="Najlepszy osobnik")
-    # plt.plot(avg_hist, label="Średnia populacji")
-    # plt.plot(max_hist, label="Najgorszy osobnik")
-    # plt.xlabel("Pokolenie")
-    # plt.ylabel("Wartość funkcji (Ackley)")
-    # plt.title("Konwergencja algorytmu genetycznego")
-    # plt.legend()
-    # plt.grid()
-    # plt.show()
+    print("Best pos:", best_pos)
+    print("Best fit:", best_fit)
