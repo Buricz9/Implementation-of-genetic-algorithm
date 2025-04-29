@@ -1,22 +1,7 @@
 # Implementation-of-genetic-algorithm
 
 Funkcjonalności
-Optymalizacja funkcji Ackley za pomocą algorytmu genetycznego.
-
-Możliwość konfiguracji:
-
-- liczby zmiennych
-- zakresów wartości
-- liczby bitów na zmienną
-- wielkości populacji
-- liczby pokoleń
-- prawdopodobieństwa krzyżowania i mutacji
-- różne metody selekcji (turniejowa, ruletkowa).
-- różne krzyżowania (jednopunktowe, dwupunktowe).
-- GUI (Tkinter): pozwala na ustawienie parametrów i wyświetla wykres konwergencji.
-- zapisywanie wyników do pliku (results/best_scores.txt) w wariancie z main.py.
-- Obsługa statystyk populacji: minimum, średnia, maksimum w każdym pokoleniu (w wersji rozbudowanej).
-
+Eksperyment GWO na funkcji Ackleya
 
 Instalacja krok po kroku
 Sklonuj repozytorium (lub pobierz ZIP i rozpakuj):
@@ -32,9 +17,48 @@ py -m venv .venv
 ```
 Zainstaluj wymagane pakiety:
 ```powershell
-pip install numpy matplotlib
+ pip install mealpy streamlit numpy matplotlib
 ```
 Sposoby uruchomienia
 ```powershell
-py gui.py
+streamlit run gui.py
 ```
+
+Alternatywny skrypt w main.py, który uruchamia GWO i wypisuje wynik w konsoli:
+```powershell
+python main.py --n_vars 30 --pop_size 50 --iters 200 --runs 30
+```
+
+Dostępne argumenty:
+--n_vars — liczba wymiarów wektora (domyślnie 30)
+--pop_size — rozmiar stada wilków (domyślnie 50)
+--iters — liczba iteracji GWO (domyślnie 200)
+--runs — ile razy powtórzyć optymalizację, by zebrać statystyki (domyślnie 30)
+
+Szczegóły:
+
+ackley.py
+Definicja funkcji Ackleya w dowolnej liczbie wymiarów.
+
+algorithm_real.py
+Funkcja run_gwo(...):
+
+buduje problem w formacie MealPy (FloatVar z bounds),
+
+wywołuje OriginalGWO.solve(),
+
+zbiera najlepsze rozwiązenia i krzywe konwergencji,
+
+zwraca globalnie najlepszy wektor, jego wartość oraz średnią i odchylenie krzywej.
+
+gui.py
+Interfejs Streamlit:
+
+suwaki do parametrów,
+
+przycisk uruchomienia,
+
+wykres średniej konwergencji ± odchylenie.
+
+main.py
+CLI-owy entry-point (argparse → run_gwo) — opcjonalny.
