@@ -1,4 +1,4 @@
-# algorithm_real.py
+# gwo.py
 import numpy as np
 from mealpy import FloatVar                             # ← FloatVar do definiowania zakresów :contentReference[oaicite:0]{index=0}
 from mealpy.swarm_based.GWO import OriginalGWO           # ← prawidłowa klasa GWO :contentReference[oaicite:1]{index=1}

@@ -2,7 +2,7 @@
 
 import streamlit as st
 import matplotlib.pyplot as plt
-from algorithm_real import run_gwo
+from gwo import run_gwo
 
 st.title("Eksperyment GWO na funkcji Ackleya")
 

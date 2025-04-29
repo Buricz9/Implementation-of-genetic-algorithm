@@ -1,6 +1,6 @@
 # main.py
 import argparse
-from algorithm_real import run_gwo
+from gwo import run_gwo
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
