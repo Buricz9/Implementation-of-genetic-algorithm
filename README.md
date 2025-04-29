@@ -35,9 +35,13 @@ python main.py --n_vars 30 --pop_size 50 --iters 200 --runs 30
 ```
 
 Dostępne argumenty:
+
 --n_vars — liczba wymiarów wektora (domyślnie 30)
+
 --pop_size — rozmiar stada wilków (domyślnie 50)
+
 --iters — liczba iteracji GWO (domyślnie 200)
+
 --runs — ile razy powtórzyć optymalizację, by zebrać statystyki (domyślnie 30)
 
 Szczegóły:
